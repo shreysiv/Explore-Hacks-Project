@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            // food data and ingredients
             foods: [
                 { type: 'steak', calories: '679', img: 'assets/steak.png', isShowMore: false, ingredients: {
                     name: 'NY Strip Steak',
@@ -39,6 +40,7 @@ const app = Vue.createApp({
             ]
         }
     },
+    // custom methods to handle actions
     methods: {
         changeFood(food) {
             this.food = food
