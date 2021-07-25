@@ -1,0 +1,99 @@
+<html lang="en">
+
+<div class="exploreCuisine">
+    <h1>The Explore Cuisine</h1>
+</div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif
+        }
+
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        li.more {
+            background: rgb(223, 223, 223);
+        }
+
+        .title {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: red;
+        }
+
+        .moreButton {
+            display: block;
+            padding: 30px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: #333333;
+            color: #ffffff;
+            text-align: left;
+            transition: all;
+            font-weight: bold;
+        }
+
+        .imageLimit {
+            width: auto;
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        .exploreCuisine {
+            color: #1292a8;;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>Welcome to Explore Food</h1>
+    </div>
+
+    <div id="app">
+        <ul>
+            <li v-for="food in foods" :class="{ more: food.isShowMore}">
+                <img :src="food.img" :alt="food.type" class="imageLimit">
+                <h3>{{ food.type }}</h3>
+                <p>{{ food.calories + " calories"}}</p>
+                <div>
+                    <button type="button" class="moreButton" @click="toggleShowMore(food)">Show Ingredients
+                        <div v-if="food.isShowMore == true">
+                            <p v-for="name in food.ingredients">{{ name }}</p>
+                        </div>
+                    </button>
+
+                </div>
+            </li>
+        </ul>
+        <br>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
