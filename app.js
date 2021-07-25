@@ -17,7 +17,8 @@ const app = Vue.createApp({
                     name3: '1 Egg',
                     name4: 'Green Onion',
                     name5: 'Peas',
-                    name6: 'Carrots'
+                    name6: 'Carrots',
+                    name7: 'Soy Sauce'
                 } 
                 },
                 { type: 'pizza', calories: '200', img: 'assets/pizza.png', isShowMore: false, ingredients: {
