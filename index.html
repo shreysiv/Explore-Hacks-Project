@@ -4,6 +4,8 @@
     <h1>The Explore Cuisine</h1>
 </div>
 
+<!-- This makes a heading-->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +15,12 @@
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif
-        }
+        }   
 
+/* This chooses what kind of font we want on the website */
+
+
+/* CSS classes for website design */
         body {
             background: #eee;
             max-width: 960px;
@@ -41,7 +47,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: red;
+            color: rgb(11, 50, 221);
         }
 
         .moreButton {
@@ -69,18 +75,26 @@
     </style>
 </head>
 
+<!-- This chooses the font color for the Explore Cuisine font-->
+
 <body>
     <div class="title">
         <h1>Welcome to Explore Food</h1>
     </div>
 
+<!-- This makes a title -->
+
     <div id="app">
         <ul>
+            <!-- iteratres through every food -->
+            <!-- if clicked then use .more class in css -->
             <li v-for="food in foods" :class="{ more: food.isShowMore}">
                 <img :src="food.img" :alt="food.type" class="imageLimit">
+                <!-- prints the food type and calories -->
                 <h3>{{ food.type }}</h3>
                 <p>{{ food.calories + " calories"}}</p>
                 <div>
+                    <!-- button to toggle if food is selected for showing ingredients -->
                     <button type="button" class="moreButton" @click="toggleShowMore(food)">Show Ingredients
                         <div v-if="food.isShowMore == true">
                             <p v-for="name in food.ingredients">{{ name }}</p>
